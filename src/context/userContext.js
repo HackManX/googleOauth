@@ -36,17 +36,26 @@ export const UserContextProvider = ({ children }) => {
     return unsubscribe;
   }, []);
 
-  const registerUser = (email, password, name) => {
-    setLoading(true);
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() =>
-        updateProfile(auth.currentUser, {
+  // registerUser function as you provided
+  const registerUser = async (email, password, name) => {
+    try {
+      // 1. Create user with email and password
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+      // 2. Update user profile with displayName
+      if (auth.currentUser) {
+        await updateProfile(auth.currentUser, {
           displayName: name,
-        })
-      )
-      .then((res) => console.log(res))
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
+        });
+      }
+
+      // Optionally: you can update context or state here if needed
+
+      return userCredential;
+    } catch (error) {
+      console.error("Error in registerUser:", error);
+      throw error;
+    }
   };
 
   const signInUser = (email, password) => {
