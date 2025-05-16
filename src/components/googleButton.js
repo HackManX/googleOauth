@@ -6,8 +6,9 @@ const GoogleButton = ({ children, ...buttonProps }) => {
       <div className="google-icon-wrapper">
         <img
           className="google-icon"
-          src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+          src="https://img.freepik.com/premium-vector/print-creative-modern-color-full-logo-design_1271730-562.jpg?semt=ais_hybrid&w=740"
           alt="google button"
+          style={{ width: '30px', height: '30px' }} // adjust as needed
         />
         <p className="btn-text">
           <b>{children}</b>

@@ -6,6 +6,7 @@ const Dashboard = () => {
   return (
     <div>
       <h1>Dashboard </h1>
+      <h2>Hello</h2>
       <h2>Name : {user.displayName}</h2>
       <h2>Email : {user.email}</h2>
       <button onClick={logoutUser}>Log out</button>
